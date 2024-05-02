@@ -1,6 +1,7 @@
+import Header from "@/components/Header";
 import Head from "next/head";
 import React from "react";
-import PropTypes from "prop-types";
+import "@/styles/globals.css";
 
 export const metadata = {
     title: "prima",
@@ -13,8 +14,14 @@ const Home = () => {
             <Head>
                 <title>{metadata.title}</title>
                 <meta name="description" content={metadata.description} />
+                <link
+                    rel="stylesheet"
+                    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+                />
             </Head>
-            <div>index</div>
+            <div className="mainLayout">
+                <Header />
+            </div>
         </>
     );
 };
