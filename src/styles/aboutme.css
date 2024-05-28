@@ -9,8 +9,67 @@
     }
 }
 
-
 .container{
-    padding-top: 70px;
+    padding-top: 250px;
+    height: auto;
+    padding-left: 20px;
+        padding-right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     animation: fadeIn 1s ease-out;
 }
+
+.mainContainer{
+    max-width: 1200px;
+    display: flex;
+    flex-direction: row;    
+    align-items: center;
+    gap: 20px;
+    /* background-color: aqua; */
+    justify-content: space-evenly;
+}
+
+.imgSection img{
+    max-width: 500px; 
+    transition: transform 2s ease-out;
+}
+
+.introSection {
+    transition: transform 2s ease-out; 
+}
+
+.introTitleFonts{
+    font-family: bold;
+    color: #DCD7C9;
+    font-size: x-large;
+}
+
+.introDescFonts{
+    font-family: regular;
+    color: #DCD7C9;
+    font-size: large;
+    text-align: justify;
+}
+
+
+
+@media (min-width: 640px){
+    .container{
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 900px) {
+    .mainContainer {
+        flex-direction: column;
+    }
+
+    .photoSection, .introSection {
+        transform: translateY(20px); 
+    }
+}
+
+
+
+

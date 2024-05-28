@@ -7,6 +7,8 @@ import "../styles/fonts.css";
 const Header = () => {
     const [isMobile, setIsMobile] = React.useState(false);
     const [drawerOpen, setDrawerOpen] = React.useState(false);
+    // const [scrollPos, setScrollPos] = React.useState(0);
+    const [isScrolled, setIsScrolled] = React.useState(false);
 
     const menuArr = [
         { title: "About Me" },
@@ -15,6 +17,32 @@ const Header = () => {
         { title: "Work Experience" },
         { title: "Projects" },
     ];
+
+    React.useEffect(() => {
+        // teknik debounce
+        let timeoutId: NodeJS.Timeout;
+
+        const handleScroll = () => {
+            clearTimeout(timeoutId);
+
+            timeoutId = setTimeout(() => {
+                const position = window.scrollY;
+                // setScrollPos(position);
+
+                if (position > 180) {
+                    setIsScrolled(true);
+                } else {
+                    setIsScrolled(false);
+                }
+            }, 200);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
 
     React.useEffect(() => {
         const handleResize = () => {
@@ -29,6 +57,7 @@ const Header = () => {
             window.removeEventListener("resize", handleResize);
         };
     }, []);
+
     const handleHomeClick = () => {
         window.scrollTo({
             top: 0,
@@ -38,7 +67,7 @@ const Header = () => {
     };
     return (
         <>
-            <div className="headerLayout">
+            <div className={`headerLayout ${isScrolled ? "scrolled" : ""}`}>
                 <Button
                     style={{
                         borderWidth: 0,
@@ -55,6 +84,7 @@ const Header = () => {
                         {menuArr.map((item, i) => {
                             return (
                                 <Button
+                                    key={i}
                                     style={{
                                         borderWidth: 0,
                                         color: "white",

@@ -13,6 +13,12 @@
     z-index: 1000; /* Memastikan header selalu di atas elemen lain */
 }
 
+.headerLayout.scrolled {
+    /* border-bottom: 0.5px solid;  */
+    background-color: #3F4E4F;
+        
+}
+
 .headerMenuLayout {
     display: flex;
     flex: 0.3;
