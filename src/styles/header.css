@@ -1,0 +1,72 @@
+.headerLayout{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 40px;
+    position: fixed; /* Menambahkan ini */
+    width: 100%; /* Menjadikan lebar header sesuai dengan lebar viewport */
+    top: 0; /* Menempatkan header di bagian atas */
+    left: 0; /* Menempatkan header di bagian kiri */
+    z-index: 1000; /* Memastikan header selalu di atas elemen lain */
+}
+
+.headerMenuLayout {
+    display: flex;
+    flex: 0.3;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.drawer{
+   background-color: rgba(0, 0, 0, 0.1);
+   height: 100%;
+   width: 100%;
+    align-items: center;
+}
+
+.home-icon {
+    color: #DCD7C9;
+    font-size: 30px;
+    display: none; /* Default to not display */
+}
+
+.home-fonts{
+    font-family: bold;
+    display: inline;
+    color: #DCD7C9;
+    font-size: large;
+}
+
+.menu-fonts {
+    font-family: regular;
+    color: #DCD7C9;
+    font-size: medium;
+}
+
+@media (max-width: 1280px){
+    .headerMenuLayout{
+        flex: 0.5
+    }
+}
+
+@media (max-width: 1080px){
+    .headerMenuLayout{
+        flex: 0.7
+    }
+}
+
+@media (max-width: 720px) {
+    .home-icon {
+        display: inline; 
+    }
+    .home-fonts{
+        display: none;
+    }
+    .headerMenuLayout{
+        display: none;
+    }
+}
