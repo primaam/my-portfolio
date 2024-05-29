@@ -12,9 +12,8 @@ const Header = () => {
 
     const menuArr = [
         { title: "About Me" },
-        { title: "Education" },
+        { title: "Experience" },
         { title: "Skills" },
-        { title: "Work Experience" },
         { title: "Projects" },
     ];
 

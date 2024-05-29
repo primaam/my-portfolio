@@ -1,0 +1,7 @@
+.layoutContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    /* background: linear-gradient(135deg, rgba(44,54,57,1) 0%, rgba(63,78,79,1) 100%); */
+  }

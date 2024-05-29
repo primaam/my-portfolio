@@ -1,8 +1,10 @@
-import Header from "@/components/Header";
+"use client";
 import Head from "next/head";
 import React from "react";
 import "@/styles/globals.css";
 import AboutMe from "@/components/AboutMe";
+import Header from "@/components/Header";
+import Layout from "@/components/Layout";
 
 export const metadata = {
     title: "Welcome to Prima's Website",
@@ -20,10 +22,11 @@ const Home = () => {
                     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
                 />
             </Head>
-            <div className="mainLayout">
+
+            <Layout>
                 <Header />
                 <AboutMe />
-            </div>
+            </Layout>
         </>
     );
 };
