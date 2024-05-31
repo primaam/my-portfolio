@@ -7,7 +7,7 @@ import "../styles/fonts.css";
 const AboutMe = () => {
     return (
         <>
-            <Container className="layout" maxWidth="xl">
+            <Container id={"aboutme"} className="layout" maxWidth="xl">
                 <Box className="mainLayout">
                     <div className="introImg">
                         <img src="/assets/images/1.png" alt="Profile" />

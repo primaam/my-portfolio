@@ -1,0 +1,107 @@
+.layout{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 1s ease-out;
+}
+
+.mainLayout{
+    width: 100%;
+    min-height: 500px;
+    display: flex;
+    flex-direction: row;   
+    align-items:center;
+    /* align-items: center; */
+    justify-content: space-around; 
+    gap: 20px;
+    background-color: #3F4E4F;
+    border-radius: 20px;
+}
+
+.section{
+    flex: 0.45
+}
+
+.eduDivider div{
+    border-color: #DCD7C9;
+    border-width: 0.1px;
+}
+
+.divider{
+    height: 300px;
+    border-width: 1px;
+}
+
+.titleFonts{
+    font-family: bold;
+    color: #DCD7C9;
+    font-size: large;
+}
+.titleFonts.titleSection{
+    text-align: center;
+    font-size: x-large;
+    margin-bottom: 15px;
+    
+}
+
+.detailFonts{
+    font-family: regular;
+    color: #DCD7C9;
+    font-size:medium;
+    text-align: justify;
+}
+
+.titleRowContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+@media (max-width: 1024px){
+    .eduDivider{
+        display: none;
+    }
+    .section{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        
+        padding-top: 10px;
+    }
+    .secondarySection{
+        flex: 0.6;
+    }
+    .titleFonts{
+        font-size: small;
+    }
+    .titleFonts.titleSection{
+        flex: 0.2;
+        font-size: large;
+    }
+    .detailFonts{
+        font-size: small;
+    }
+}
+
+@media (max-width: 900px) {
+    /* new */
+    /* .layout{
+        margin-top: 100px;
+    }
+    .layout.descLayout{
+        margin-top: 100px;
+    } */
+    .mainLayout{
+        flex-direction: column; 
+        background-color: #2C3639;
+        border-radius: 10px;
+    }
+    .divider{
+        display: none; 
+       
+    }
+}

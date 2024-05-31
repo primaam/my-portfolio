@@ -7,45 +7,19 @@ import "../styles/fonts.css";
 const Header = () => {
     const [isMobile, setIsMobile] = React.useState(false);
     const [drawerOpen, setDrawerOpen] = React.useState(false);
-    // const [scrollPos, setScrollPos] = React.useState(0);
+    const [scrollPos, setScrollPos] = React.useState("aboutme");
     const [isScrolled, setIsScrolled] = React.useState(false);
 
     const menuArr = [
-        { title: "About Me" },
-        { title: "Experience" },
-        { title: "Skills" },
-        { title: "Projects" },
+        { title: "About Me", id: "aboutme" },
+        { title: "Background", id: "background" },
+        { title: "Skills", id: "skills" },
+        { title: "Projects", id: "projects" },
     ];
 
     React.useEffect(() => {
-        // teknik debounce
-        let timeoutId: NodeJS.Timeout;
-
-        const handleScroll = () => {
-            clearTimeout(timeoutId);
-
-            timeoutId = setTimeout(() => {
-                const position = window.scrollY;
-                // setScrollPos(position);
-
-                if (position > 180) {
-                    setIsScrolled(true);
-                } else {
-                    setIsScrolled(false);
-                }
-            }, 200);
-        };
-
-        window.addEventListener("scroll", handleScroll);
-
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
-    }, []);
-
-    React.useEffect(() => {
         const handleResize = () => {
-            setIsMobile(window.innerWidth < 720);
+            setIsMobile(window.innerWidth < 768);
         };
 
         handleResize();
@@ -57,12 +31,60 @@ const Header = () => {
         };
     }, []);
 
+    React.useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            // behavior: "smooth",
+        });
+    }, []);
+
+    React.useEffect(() => {
+        // teknik debounce
+        let timeoutId: NodeJS.Timeout;
+
+        let height = screen.height;
+
+        const handleScroll = () => {
+            clearTimeout(timeoutId);
+
+            timeoutId = setTimeout(() => {
+                const position = window.scrollY;
+                // setScrollPos(position);
+                if (position < 180) {
+                    setIsScrolled(false);
+                } else {
+                    setIsScrolled(true);
+                    if (position <= height) {
+                        setScrollPos("aboutme");
+                    } else if (position === 2 * height) {
+                        setScrollPos("background");
+                    }
+                }
+            }, 200);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
+
     const handleHomeClick = () => {
         window.scrollTo({
             top: 0,
             behavior: "smooth",
         });
-        console.log("test");
+    };
+
+    const scrollToHash = (param: string) => {
+        const element = document.getElementById(`${param}`);
+        if (param != undefined) {
+            setScrollPos(param);
+            element?.scrollIntoView({
+                behavior: "smooth",
+            });
+        }
     };
     return (
         <>
@@ -83,9 +105,24 @@ const Header = () => {
                         {menuArr.map((item, i) => {
                             return (
                                 <Button
+                                    onClick={() => scrollToHash(item.id)}
+                                    variant="outlined"
                                     key={i}
-                                    style={{
-                                        borderWidth: 0,
+                                    sx={{
+                                        "&.MuiButton-outlined:focus": {
+                                            border: "inherit",
+
+                                            borderBottomWidth: scrollPos === item.id ? 1 : 0,
+                                            borderBottomColor: "wheat",
+                                            outline: "none", // Contoh: Menghilangkan outline
+                                        },
+                                        borderTopWidth: 0,
+                                        borderLeftWidth: 0,
+                                        borderRightWidth: 0,
+                                        borderRadius: 0,
+                                        borderBottomWidth: scrollPos === item.id ? 1 : 0,
+                                        borderBottomColor: "wheat",
+                                        // border: "none",
                                         color: "white",
                                         textTransform: "none",
                                     }}

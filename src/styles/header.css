@@ -2,10 +2,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 60px;
+    height: 70px;
     padding-left: 20px;
     padding-right: 20px;
-    padding-top: 40px;
+    /* padding-top: 40px; */
     position: fixed; /* Menambahkan ini */
     width: 100%; /* Menjadikan lebar header sesuai dengan lebar viewport */
     top: 0; /* Menempatkan header di bagian atas */
@@ -14,8 +14,10 @@
 }
 
 .headerLayout.scrolled {
-    /* border-bottom: 0.5px solid;  */
+    border-bottom: 0.5px solid #DCD7C9; 
     background-color: #3F4E4F;
+    /* border-bottom-width: 1px;
+    border-bottom-color: #DCD7C9; */
         
 }
 
@@ -65,7 +67,7 @@
     }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 768px) {
     .home-icon {
         display: inline; 
     }

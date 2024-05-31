@@ -5,6 +5,7 @@ import "@/styles/globals.css";
 import AboutMe from "@/components/AboutMe";
 import Header from "@/components/Header";
 import Layout from "@/components/Layout";
+import Background from "@/components/Background";
 
 export const metadata = {
     title: "Welcome to Prima's Website",
@@ -26,6 +27,7 @@ const Home = () => {
             <Layout>
                 <Header />
                 <AboutMe />
+                <Background />
             </Layout>
         </>
     );
