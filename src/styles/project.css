@@ -1,0 +1,87 @@
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.projectLayout{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 1s ease-out;
+}
+
+.projectMainLayout{
+    width: 100%;
+    min-height: 500px;
+    display: flex;
+    flex-direction: row;   
+    align-items:center;
+    /* align-items: center; */
+    gap: 20px;
+}
+
+.projectTitleFonts{
+    font-family: bold;
+    color: #DCD7C9;
+    font-size: x-large;
+    /* flex: 0.8; */
+    
+}
+
+.projDivider{
+    border-color: #DCD7C9;
+    border-width: 0.1px;
+    height: 300px;
+}
+
+.slideShowContainer{
+    max-width: 1000px;
+    height: 300px;
+    position: relative;
+    margin: auto;
+    align-items: center;
+    overflow: hidden;
+}
+.sliderCard{
+    display: none;
+}
+.prev, .next{
+    cursor: pointer;
+    /* position: absolute; */
+    /* top: 50%; */
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 1s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+.next {
+    /* right: 0; */
+    border-radius: 3px 0 0 3px;
+}
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+  }
+
+  

@@ -6,12 +6,13 @@ import { COLOR } from "../../public/assets/color";
 import { WorkDetailData, EducationDetailData } from "../data/experienceData";
 
 const Background = () => {
-    let screenMonitoring: number;
+    const eduFilteredData = EducationDetailData.filter((item, i) => {
+        return item.type === "education";
+    });
 
-    React.useEffect(() => {
-        const screenWidth = screen.width;
-        screenMonitoring = screenWidth;
-    }, []);
+    const certiFilteredData = EducationDetailData.filter((item, i) => {
+        return item.type === "certification";
+    });
 
     return (
         <Container id="background" maxWidth="xl" className="layout">

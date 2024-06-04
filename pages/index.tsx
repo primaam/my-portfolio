@@ -6,6 +6,7 @@ import AboutMe from "@/components/AboutMe";
 import Header from "@/components/Header";
 import Layout from "@/components/Layout";
 import Background from "@/components/Background";
+import Project from "@/components/Project";
 
 export const metadata = {
     title: "Welcome to Prima's Website",
@@ -28,6 +29,7 @@ const Home = () => {
                 <Header />
                 <AboutMe />
                 <Background />
+                <Project />
             </Layout>
         </>
     );
