@@ -9,6 +9,21 @@
     }
 }
 
+@keyframes sliderFade{
+    from {
+        /* opacity: 0;
+        transform: translateY(50px); */
+        margin-left: 100%;
+        width: 300%;
+    }
+    to {
+        /* opacity: 0.8;
+        transform: translateY(0); */
+        margin-left: 0%;
+        width: 100%;
+    }
+}
+
 .projectLayout{
     height: 100vh;
     width: 100vw;
@@ -19,21 +34,14 @@
 }
 
 .projectMainLayout{
-    width: 100%;
-    min-height: 500px;
+    width: 80%;
+    min-height: 600px;
     display: flex;
     flex-direction: row;   
     align-items:center;
     /* align-items: center; */
     gap: 20px;
-}
-
-.projectTitleFonts{
-    font-family: bold;
-    color: #DCD7C9;
-    font-size: x-large;
-    /* flex: 0.8; */
-    
+    /* background-color: green; */
 }
 
 .projDivider{
@@ -42,6 +50,11 @@
     height: 300px;
 }
 
+.slideShowLayout{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
 .slideShowContainer{
     max-width: 1000px;
     height: 300px;
@@ -50,17 +63,25 @@
     align-items: center;
     overflow: hidden;
 }
+.slideShowContainer img{
+    height: 250px;
+}
 .sliderCard{
     display: none;
+    background-color: whitesmoke;
+    border-radius: 10px;   
+    padding: 10px; 
+}
+.sliderButtonContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 .prev, .next{
     cursor: pointer;
-    /* position: absolute; */
-    /* top: 50%; */
     width: auto;
     padding: 16px;
-    margin-top: -22px;
-    color: white;
+    color: #DCD7C9;
     font-weight: bold;
     font-size: 18px;
     transition: 1s ease;
@@ -68,20 +89,67 @@
     user-select: none;
 }
 .next {
-    /* right: 0; */
     border-radius: 3px 0 0 3px;
 }
 .prev:hover, .next:hover {
     background-color: rgba(0,0,0,0.8);
 }
 .fade {
-    animation-name: fade;
-    animation-duration: 1.5s;
+    animation: sliderFade 1s ease-out;
 }
 
-@keyframes fade {
-    from {opacity: .4} 
-    to {opacity: 1}
-  }
+.sliderButton{
+    text-transform: none;
+    background-color:  #DCD7C9;
+    color: #2C3639;
+    border-radius: 10px;
+    width: 300px;
+}
+
+.projectTitleFonts{
+    font-family: bold;
+    color: #DCD7C9;
+    font-size: x-large;
+}
+.projectDescFonts{
+    font-family: regular;
+    color: #DCD7C9;
+    font-size: large;
+}
+.projectDescFonts.description{
+    font-size:medium;
+    text-align: justify;
+}
+
+
+@media (max-width: 768px){
+    .projectMainLayout{
+        flex-direction: column-reverse; 
+        min-height: 200px;
+    }
+    .projDivider{
+        display: none;
+    }
+    .slideShowLayout{
+        width: 100%;
+    }
+    
+}
+
+@media (max-width: 375px){
+    .projectDescFonts{
+        font-size: medium;
+    }
+    .projectDescFonts.description{
+        font-size:small;
+    }
+    .slideShowContainer{
+        height: 180px;
+    }
+    .slideShowContainer img{
+        height: 150px;
+        width: 150px;
+    }
+}
 
   

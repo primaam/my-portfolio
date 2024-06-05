@@ -1,0 +1,13 @@
+.detailLayout{
+    background-color: green;
+    /* display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw; */
+}
+
+.detailFonts{
+    font-family: bold;
+    color: #DCD7C9;
+    font-size: medium;
+}

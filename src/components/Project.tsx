@@ -1,11 +1,12 @@
 "use client";
 import React from "react";
+import { useRouter } from "next/router";
 import { Container, Box, Button } from "@mui/material";
 import { projectDetail } from "../data/projectData";
 import "../styles/project.css";
-import { COLOR } from "../../public/assets/color";
 
 const Project = () => {
+    const router = useRouter();
     const [sliderIndex, setSliderIndex] = React.useState(0);
 
     const imageSliderWidthHandle = React.useMemo(() => {
@@ -19,7 +20,7 @@ const Project = () => {
                 width = "600px";
                 break;
             default:
-                width = "300px";
+                width = "500px";
                 break;
         }
 
@@ -44,34 +45,30 @@ const Project = () => {
 
     const handleProjectClick = (projectId: number) => {
         // Handle click event to navigate to project detail page
+        router.push(`/detail/${projectId}`);
         console.log("Navigate to project detail page for project id: ", projectId);
     };
 
     return (
-        <Container maxWidth="xl" className="projectLayout">
+        <div className="projectLayout">
             <Box className="projectMainLayout">
                 <div
                     style={{
-                        flex: 0.3,
+                        flex: 0.8,
                     }}
                 >
                     <p className="projectTitleFonts">Projects I've Contributed To...</p>
-                    <h1>{projectDetail[sliderIndex].title}</h1>
-                    <p>{projectDetail[sliderIndex].team}</p>
-                    <p>{projectDetail[sliderIndex].role}</p>
-
-                    <p>{projectDetail[sliderIndex].team}</p>
-                    <p>{projectDetail[sliderIndex].role}</p>
+                    <p className="projectTitleFonts">{projectDetail[sliderIndex].title}</p>
+                    <u className="projectDescFonts">
+                        {projectDetail[sliderIndex].team} - {projectDetail[sliderIndex].role}
+                    </u>
+                    <p className="projectDescFonts description">
+                        {projectDetail[sliderIndex].shortDesc}
+                    </p>
                 </div>
                 <div className="projDivider" />
 
-                <div
-                    style={{
-                        flex: 1,
-                        display: "flex",
-                        flexDirection: "column",
-                    }}
-                >
+                <div className="slideShowLayout">
                     <div className="slideShowContainer">
                         {projectDetail.map((item, i) => {
                             return (
@@ -83,31 +80,37 @@ const Project = () => {
                                     }}
                                 >
                                     <img
-                                        src={item.images}
-                                        style={{ maxWidth: imageSliderWidthHandle }}
+                                        src={item.logo}
+                                        style={{
+                                            maxWidth: imageSliderWidthHandle,
+                                        }}
                                     />
                                 </div>
                             );
                         })}
                     </div>
-                    <div
-                        style={{
-                            display: "flex",
-                            justifyContent: "space-between",
-                            alignItems: "center",
-                        }}
-                    >
+                    <div className="sliderButtonContainer">
                         <Button onClick={() => handleSliderBackClick()} className="prev">
                             <span className="material-symbols-outlined">chevron_left</span>
                         </Button>
-
+                        <Button
+                            onClick={() => handleProjectClick(sliderIndex)}
+                            className="sliderButton"
+                        >
+                            <p
+                                style={{ color: "#2C3639" }}
+                                className="projectDescFonts description"
+                            >
+                                See Detail
+                            </p>
+                        </Button>
                         <Button onClick={() => handleSliderNextClick()} className="next">
                             <span className="material-symbols-outlined">chevron_right</span>
                         </Button>
                     </div>
                 </div>
             </Box>
-        </Container>
+        </div>
     );
 };
 

@@ -25,7 +25,7 @@ export const projectDetail: ProjectDetail[] = [
         id: 1,
         title: "ClicTruck",
         time: "May 2023 - November 2023",
-        logo: "",
+        logo: "/assets/images/clictruck-logo.png",
         images: "/assets/images/clictruck.png",
         longDesc: `ClicTruck, a vital component of the Clickargo project, is a product developed by Guud Logistics Company. The primary objective of this project is to offer comprehensive, centralized services that seamlessly connect all stakeholders involved in the logistics chain, including customs, terminal operators, cargo owners, freight forwarders, trucking companies, and container depots.\n ClicTruck serves as a streamlined digital vendor fleet management system designed to simplify the process of assigning jobs to truck drivers, providing real-time digital proofs of delivery, and facilitating instant payments to drivers through a digital wallet service. By enabling digital job assignment, GPS tracking of cargo, and digital management of delivery proofs, ClicTruck empowers truck drivers to effectively manage their delivery schedules and orders, ensuring timely payments and smoother operations.`,
         shortDesc: "ClicTruck, part of Clickargo by Guud Logistics, streamlines vendor fleet management, simplifying job assignments, offering real-time proof of delivery, and facilitating instant payments to drivers. With digital job assignment and GPS tracking, it empowers drivers for smoother operations and timely payments.",
@@ -62,7 +62,7 @@ export const projectDetail: ProjectDetail[] = [
         id: 2,
         title: "Landack",
         time: "March 2023 - May 2023",
-        logo: "",
+        logo: "/assets/images/landack-logo.png",
         images: "/assets/images/landack.png",
         longDesc: `Landack is a digital platform that offers legal consultation services and legal assistance for both individuals and businesses. By merging digital technology with legal expertise, Landack aims to provide users with easy and convenient access to addressing various legal issues they encounter.\nThrough this platform, users can quickly seek solutions to their legal questions, receive advice from trusted legal experts, and obtain legal services tailored to their needs, whether for personal or business purposes. Landack serves as a reliable partner in delivering precise and high-quality legal solutions, assisting users in carrying out their activities smoothly and ensuring legal compliance.`,
         shortDesc: "Landack: Digital platform for legal consultation and assistance. Users get quick access to legal solutions and advice, tailored for personal or business needs. Reliable partner for smooth operations and legal compliance.",
@@ -95,7 +95,7 @@ export const projectDetail: ProjectDetail[] = [
         id: 3,
         title: "BibToGo",
         time: "July 2021 - July 2022",
-        logo: "",
+        logo: "/assets/images/bibtogo-logo.png",
         images: "/assets/images/bibtogo.jpg",
         longDesc: `Goethe-Institut is a German cultural institution that focuses on promoting the German language and understanding of German culture worldwide. The institute offers a wide range of programs and services, including German language courses, German language certification exams, cultural seminars, arts and cultural programs, as well as support for cultural exchange and international cooperation between Germany and other countries
         \nGoethe-Institut is a leading institution in promoting the German language and culture, and serves as a resource center for learning the German language and gaining knowledge of German culture worldwide. It also plays a role in strengthening cultural ties between Germany and other countries, facilitating cultural exchange and international cooperation.
@@ -133,7 +133,7 @@ export const projectDetail: ProjectDetail[] = [
         id: 4,
         title: "Rapidsense",
         time: "May 2022 - July 2022",
-        logo: "",
+        logo: "/assets/images/rapidsense-logo.png",
         images: "/assets/images/rapidsense.png",
         longDesc: `Datacakra is industry 4.0 specialist working for enterprises and corporates across Indonesia with focus on industrial IoT and monitoring system. As a service provider for IoT users, Datacakra build a product called Rapidsense. It's an advanced IoT platform designed specifically to handle heavy-duty enteprise-grade IoT solutions. It supports wide-range of industrial sensors, various business purposes, and cloud scalability.
         \nOne of the features of Rapidsense is displaying live-data of the machines and adjust it according to the services that users has subscribed. It helps the user to observe machine usage and get data reference to make an analysis. Also it can turn the machine on and off through the app`,

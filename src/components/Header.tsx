@@ -2,7 +2,6 @@
 import React from "react";
 import { Box, Button, Drawer, List, ListItem, ListItemButton, ListItemText } from "@mui/material";
 import "@/styles/header.css";
-import "../styles/fonts.css";
 
 const Header = () => {
     const [isMobile, setIsMobile] = React.useState(false);
@@ -19,7 +18,7 @@ const Header = () => {
 
     React.useEffect(() => {
         const handleResize = () => {
-            setIsMobile(window.innerWidth < 768);
+            setIsMobile(window.innerWidth <= 768);
         };
 
         handleResize();
