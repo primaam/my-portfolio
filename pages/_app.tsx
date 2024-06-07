@@ -8,10 +8,6 @@ export default function App({ Component, pageProps }: AppProps) {
         <>
             <Head>
                 <title>Welcome to Prima's Website</title>
-                <link
-                    rel="stylesheet"
-                    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
-                />
             </Head>
             <Component {...pageProps} />
         </>

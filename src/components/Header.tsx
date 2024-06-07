@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { Box, Button, Drawer, List, ListItem, ListItemButton, ListItemText } from "@mui/material";
-import "@/styles/header.css";
+import styles from "@/styles/Header.module.css";
 
 const Header = () => {
     const [isMobile, setIsMobile] = React.useState(false);
@@ -12,8 +12,8 @@ const Header = () => {
     const menuArr = [
         { title: "About Me", id: "aboutme" },
         { title: "Background", id: "background" },
-        { title: "Skills", id: "skills" },
         { title: "Projects", id: "projects" },
+        { title: "Skills", id: "skills" },
     ];
 
     React.useEffect(() => {
@@ -57,6 +57,8 @@ const Header = () => {
                         setScrollPos("aboutme");
                     } else if (position === 2 * height) {
                         setScrollPos("background");
+                    } else if (position === 2.5 * height) {
+                        setScrollPos("projects");
                     }
                 }
             }, 200);
@@ -87,7 +89,7 @@ const Header = () => {
     };
     return (
         <>
-            <div className={`headerLayout ${isScrolled ? "scrolled" : ""}`}>
+            <div className={`${styles.headerLayout} ${isScrolled ? styles.scrolled : ""}`}>
                 <Button
                     style={{
                         borderWidth: 0,
@@ -96,11 +98,11 @@ const Header = () => {
                     variant={isMobile ? "text" : "outlined"}
                     onClick={handleHomeClick}
                 >
-                    <span className="material-symbols-outlined home-icon">home</span>
-                    <h1 className="home-fonts">Home</h1>
+                    <span className={`material-symbols-outlined ${styles.homeIcon}`}>home</span>
+                    <h1 className={styles.homeFonts}>Home</h1>
                 </Button>
                 <>
-                    <div className="headerMenuLayout">
+                    <div className={styles.headerMenuLayout}>
                         {menuArr.map((item, i) => {
                             return (
                                 <Button
@@ -126,7 +128,7 @@ const Header = () => {
                                         textTransform: "none",
                                     }}
                                 >
-                                    <span className="menu-fonts">{item.title}</span>
+                                    <span className={styles.menuFonts}>{item.title}</span>
                                 </Button>
                             );
                         })}
@@ -139,15 +141,14 @@ const Header = () => {
                             color: "white",
                         }}
                     >
-                        <span className="material-symbols-outlined home-icon">menu</span>
+                        <span className={`material-symbols-outlined ${styles.homeIcon}`}>menu</span>
                     </Button>
                 </>
             </div>
             <Drawer
                 SlideProps={{
-                    className: "drawer",
+                    className: `${styles.drawer}`,
                 }}
-                // className="drawer"
                 transitionDuration={1000}
                 anchor="right"
                 open={drawerOpen}

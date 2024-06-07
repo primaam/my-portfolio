@@ -36,20 +36,20 @@
     align-items: center;
 }
 
-.home-icon {
+.homeIcon {
     color: #DCD7C9;
     font-size: 30px;
     display: none; /* Default to not display */
 }
 
-.home-fonts{
+.homeFonts{
     font-family: bold;
     display: inline;
     color: #DCD7C9;
     font-size: large;
 }
 
-.menu-fonts {
+.menuFonts {
     font-family: regular;
     color: #DCD7C9;
     font-size: medium;
@@ -68,10 +68,10 @@
 }
 
 @media (max-width: 768px) {
-    .home-icon {
+    .homeIcon {
         display: inline; 
     }
-    .home-fonts{
+    .homeFonts{
         display: none;
     }
     .headerMenuLayout{

@@ -4,10 +4,32 @@ export const COLOR = {
     color3: ["#2C3639", "#3F4E4F", "#A27B5C", "#DCD7C9"]
 }
 
-// background: rgb(0,0,0);
-// background: linear-gradient(135deg, rgba(0,0,0,1) 0%, rgba(143,151,121,1) 100%);
 
-// background: rgb(44,53,57);
-// background: linear-gradient(135deg, rgba(44,53,57,1) 0%, rgba(70,83,82,1) 100%);
 
-// background: hsla(0, 0%, 100%, .05);
+/**
+ * base color
+ * alternatif #d7d5ce
+ */
+export const neutralColor = "#f5f5f5"
+
+/**
+ * warna untuk disandingkan dengan base color
+ */
+export const primaryColor = "#31363F"
+
+/**
+ * warna untuk call to action, border, active color, hover
+ */
+export const secondaryColor = "#76ABAE"
+
+/**
+ * warna font, saat ini baru satu saja
+ */
+export const fontColor = "#222831"
+
+/**
+ * teori yang digunakan diatas adalah teori 60-30-10
+ * dari kemarin ngeliat web sendiri kayak ga asik
+ * warnanya sangat tidak menarik
+ * sekarang kita coba teori ini
+ */

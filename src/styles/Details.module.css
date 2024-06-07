@@ -1,13 +1,44 @@
 .detailLayout{
-    background-color: green;
-    /* display: flex;
+    display: flex;
     flex-direction: column;
     height: 100vh;
-    width: 100vw; */
+    width: 100vw;
 }
 
-.detailFonts{
+
+
+/* old */
+.detailSection{
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+        width: 100%;
+        height: 100%;
+}
+.divider{
+    height: 300px;
+    border-width: 1px;
+}
+
+.detailFontsTitle{
     font-family: bold;
     color: #DCD7C9;
+    font-size: large;
+}
+.detailFontsTitle.firstSection{
+    font-size: x-large;
+}
+.detailFontsTitle.secondSection{
+    z-index: 2;
+    position: absolute;
+    padding-top: 100px;
+    font-size: x-large;
+    left: 70px;
+}
+
+.detailFontsDesc{
+    font-family: regular;
+    color: #DCD7C9;
     font-size: medium;
+    text-align: justify;
 }
