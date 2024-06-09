@@ -1,0 +1,87 @@
+.layout{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* animation: fadeIn 1s ease-out; */
+}
+
+.mainLayout{
+    width: 100%;
+    min-height: 500px;
+    display: flex;
+    flex-direction: row;   
+    align-items:center;
+    /* align-items: center; */
+    justify-content: space-around; 
+    gap: 20px;   
+    background-color: #3F4E4F;
+    border-radius: 20px;
+}
+
+.titleSection{
+    flex: 0.5;
+}
+.connectSection{
+    flex: 0.4;
+    width: 100%;
+    align-items: center;
+    /* justify-content: flex-start; */  
+    display: flex;
+    flex-direction: column;
+    /* background-color: aliceblue; */
+}
+.socmedSection{
+    display: flex;
+    gap: 30px;
+}
+.downloadButton{
+    text-transform: none;
+    background-color:  #DCD7C9;
+    color: #2C3639;
+    border-radius: 10px;
+    width: 100%;
+    margin-top: 40px;
+}
+.downloadButton:hover{
+    color:  #DCD7C9;
+    border: 1px solid #DCD7C9;
+}
+
+.divider{
+    border-color: #DCD7C9;
+    border-width: 0.1px;
+    height: 300px;
+}
+
+.connectIcons{
+    font-size: 30px;
+    color: #DCD7C9;
+}
+
+.connectTitleFonts{
+    font-family: bold;
+    color: #DCD7C9;
+    font-size: xx-large;
+    margin-bottom: 30px;
+}
+
+.connectTitleFonts.socmedConnect{
+    font-size: x-large;
+}
+
+.connectDescFonts{
+    font-family: regular;
+    color: #DCD7C9;
+    font-size: larger;
+}
+.connectDescFonts.primaryConnect{
+    display: flex;
+    align-items: center;
+}
+.buttonTextFonts{
+    font-family: regular;
+    font-size: larger;
+    /* color: #2C3639; */
+}

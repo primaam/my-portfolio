@@ -53,6 +53,7 @@ const Project = () => {
             <Box className={styles.projectMainLayout}>
                 <div style={{ flex: 0.8 }}>
                     <p className={styles.projectTitleFonts}>Projects I've Contributed To...</p>
+                    <br />
                     <p className={styles.projectTitleFonts}>{projectDetail[sliderIndex].title}</p>
                     <u className={styles.projectDescFonts}>
                         {projectDetail[sliderIndex].team} - {projectDetail[sliderIndex].role}
@@ -92,12 +93,7 @@ const Project = () => {
                             onClick={() => handleProjectClick(sliderIndex)}
                             className={styles.sliderButton}
                         >
-                            <p
-                                style={{ color: "#2C3639" }}
-                                className={`${styles.projectDescFonts} ${styles.description}`}
-                            >
-                                See Detail
-                            </p>
+                            <p className={`${styles.description}`}>See Detail</p>
                         </Button>
                         <Button onClick={() => handleSliderNextClick()} className={styles.next}>
                             <span className="material-symbols-outlined">chevron_right</span>

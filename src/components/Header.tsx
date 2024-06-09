@@ -13,7 +13,7 @@ const Header = () => {
         { title: "About Me", id: "aboutme" },
         { title: "Background", id: "background" },
         { title: "Projects", id: "projects" },
-        { title: "Skills", id: "skills" },
+        { title: "Contact Me", id: "contactme" },
     ];
 
     React.useEffect(() => {
@@ -48,18 +48,11 @@ const Header = () => {
 
             timeoutId = setTimeout(() => {
                 const position = window.scrollY;
-                // setScrollPos(position);
+
                 if (position < 180) {
                     setIsScrolled(false);
                 } else {
                     setIsScrolled(true);
-                    if (position <= height) {
-                        setScrollPos("aboutme");
-                    } else if (position === 2 * height) {
-                        setScrollPos("background");
-                    } else if (position === 2.5 * height) {
-                        setScrollPos("projects");
-                    }
                 }
             }, 200);
         };
@@ -68,6 +61,34 @@ const Header = () => {
 
         return () => {
             window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
+
+    React.useEffect(() => {
+        let height = screen.height;
+
+        let timeoutId: NodeJS.Timeout;
+
+        const handleScrollPosition = () => {
+            clearTimeout(timeoutId);
+            const positionY = window.scrollY;
+
+            timeoutId = setTimeout(() => {
+                if (positionY < 2 * height) {
+                    setScrollPos("aboutme");
+                } else if (positionY < 3 * height) {
+                    setScrollPos("background");
+                } else if (positionY < 4 * height) {
+                    setScrollPos("projects");
+                } else {
+                    setScrollPos("contactme");
+                }
+            }, 200);
+        };
+        window.addEventListener("scroll", handleScrollPosition);
+
+        return () => {
+            window.removeEventListener("scroll", handleScrollPosition);
         };
     }, []);
 

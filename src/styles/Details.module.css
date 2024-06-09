@@ -12,8 +12,23 @@
     display: flex;
     align-items: center;
     justify-content:space-around;
-        width: 100%;
-        height: 100%;
+    width: 100%;
+    height: 100%;
+}
+.logoContainer{
+    background-color: whitesmoke;
+    border-radius: 10px;   
+    padding: 10px; 
+}
+.logoContainer img{
+    max-width: 300px;
+}
+.linksLogo{
+    max-width: 50px;
+    display: inline;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 20px;
 }
 .divider{
     height: 300px;
@@ -23,12 +38,12 @@
 .detailFontsTitle{
     font-family: bold;
     color: #DCD7C9;
-    font-size: large;
-}
-.detailFontsTitle.firstSection{
     font-size: x-large;
 }
-.detailFontsTitle.secondSection{
+.detailFontsTitle.firstSection{
+    font-size: xx-large;
+}
+.detailFontsTitle.titleSection{
     z-index: 2;
     position: absolute;
     padding-top: 100px;
@@ -39,6 +54,31 @@
 .detailFontsDesc{
     font-family: regular;
     color: #DCD7C9;
-    font-size: medium;
+    font-size: large;
     text-align: justify;
+}
+
+
+@media (max-width: 768px){
+    .detailSection{
+        flex-direction: column;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .divider{
+       display: none;
+    }
+    .detailFontsTitle{
+        text-align: center;
+    }
+    .detailFontsTitle.titleSection{
+       display: none;
+    }
+    .detailFontsDesc{
+       font-size: medium;
+    }
+    .logoContainer img{
+        max-width: 250px;
+    }
+    
 }

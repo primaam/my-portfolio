@@ -6,6 +6,7 @@ import Layout from "@/components/Layout";
 import Background from "@/components/Background";
 import Project from "@/components/Project";
 import { Container } from "@mui/material";
+import ContactMe from "@/components/ContactMe";
 
 const Home = () => {
     const [isLoading, setIsLoading] = React.useState(true);
@@ -27,6 +28,7 @@ const Home = () => {
             <AboutMe />
             <Background />
             <Project />
+            <ContactMe />
         </Layout>
     );
 };

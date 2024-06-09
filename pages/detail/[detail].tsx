@@ -20,40 +20,46 @@ const Detail = () => {
                 {/* title, logo, longDesc */}
                 <Container className={styles.detailLayout} maxWidth="xl">
                     <div className={styles.detailSection}>
-                        <img src={data.logo} style={{ maxWidth: "300px" }} />
+                        <div className={styles.logoContainer}>
+                            <img src={data.logo} />
+                        </div>
                         <div className={styles.divider} />
                         <div style={{ flex: 0.6 }}>
                             <h1 className={`${styles.detailFontsTitle} ${styles.firstSection}`}>
                                 {data.title}
                             </h1>
-                            <p className={`${styles.detailFontsDesc}`}>{data.longDesc}</p>
+                            <p className={`${styles.detailFontsDesc}`}>
+                                {detailIndex === 2 ? data.shortDesc : data.longDesc}
+                            </p>
                         </div>
                     </div>
                 </Container>
                 {/* team, role, techstack, roleJobDetail */}
                 <Container className={styles.detailLayout} maxWidth="xl">
-                    <p className={`${styles.detailFontsTitle} ${styles.secondSection}`}>
+                    <p className={`${styles.detailFontsTitle} ${styles.titleSection}`}>
                         Role Summary
                     </p>
                     <div className={styles.detailSection}>
                         <div>
-                            <p>{data.role}</p>
-                            <p>{data.team}</p>
+                            <p className={`${styles.detailFontsTitle}`}>{data.role}</p>
+                            <p className={`${styles.detailFontsTitle}`}>{data.team}</p>
                         </div>
                         <div className={styles.divider} />
-                        <div>
-                            <p>Job Detail</p>
+                        <div style={{ flex: 0.7 }}>
+                            <p className={`${styles.detailFontsTitle}`}>Job Detail</p>
                             {data.roleJobDetail.map((item, i) => {
                                 return (
                                     <>
-                                        <p>- {item}</p>
+                                        <p className={`${styles.detailFontsDesc}`}>- {item}</p>
                                     </>
                                 );
                             })}
                             <br />
-                            <p>Tech Stack</p>
+                            <p className={`${styles.detailFontsTitle}`}>Tech Stack</p>
                             {data.techStack.map((item, i) => {
-                                return <span>{item} | </span>;
+                                return (
+                                    <span className={`${styles.detailFontsDesc}`}>{item} | </span>
+                                );
                             })}
                         </div>
                     </div>
@@ -61,18 +67,63 @@ const Detail = () => {
 
                 {/* achievement */}
                 <Container className={styles.detailLayout} maxWidth="xl">
-                    <p className={`${styles.detailFontsTitle} ${styles.secondSection}`}>Result</p>
+                    <p className={`${styles.detailFontsTitle} ${styles.titleSection}`}>Result</p>
                     <div className={styles.detailSection}>
-                        <div>
-                            <p>Achievement</p>
+                        <div style={{ flex: 0.5 }}>
+                            <p className={`${styles.detailFontsTitle}`}>Achievement</p>
                             {data.achievement.map((item, i) => {
-                                return <p>- {item}</p>;
+                                return <p className={`${styles.detailFontsDesc}`}>- {item}</p>;
                             })}
                         </div>
                         <div className={styles.divider} />
-                        <div>
-                            <p>Links</p>
-                            <p>{data.link.web}</p>
+                        <div style={{ flex: 0.4 }}>
+                            <p className={`${styles.detailFontsTitle}`}>Links</p>
+                            <span className={`${styles.detailFontsDesc}`}>
+                                <a
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    href={data.link.web}
+                                    style={{
+                                        display: data.link.web.length === 0 ? "none" : "inline",
+                                    }}
+                                >
+                                    {/* <img
+                                        className={styles.linksLogo}
+                                        src="/assets/images/web-logo.png"
+                                    /> */}
+                                    Website{" | "}
+                                </a>
+                                <a
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    href={data.link.appStore}
+                                    style={{
+                                        display:
+                                            data.link.appStore.length === 0 ? "none" : "inline",
+                                    }}
+                                >
+                                    {/* <img
+                                        className={styles.linksLogo}
+                                        src="/assets/images/appstore-logo.png"
+                                    /> */}
+                                    App Store{" | "}
+                                </a>
+                                <a
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    href={data.link.playStore}
+                                    style={{
+                                        display:
+                                            data.link.playStore.length === 0 ? "none" : "inline",
+                                    }}
+                                >
+                                    {/* <img
+                                        className={styles.linksLogo}
+                                        src="/assets/images/playstore-logo.png"
+                                    /> */}
+                                    Play Store{" | "}
+                                </a>
+                            </span>
                         </div>
                     </div>
                 </Container>

@@ -105,6 +105,10 @@
     border-radius: 10px;
     width: 300px;
 }
+.sliderButton:hover{
+    color:  #DCD7C9;
+    border: 1px solid #DCD7C9;
+}
 
 .projectTitleFonts{
     font-family: bold;
@@ -116,8 +120,8 @@
     color: #DCD7C9;
     font-size: large;
 }
-.projectDescFonts.description{
-    font-size:medium;
+.description{
+    font-size:large;
     text-align: justify;
 }
 
