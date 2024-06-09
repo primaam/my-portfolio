@@ -119,8 +119,11 @@ const Header = () => {
                     variant={isMobile ? "text" : "outlined"}
                     onClick={handleHomeClick}
                 >
-                    <span className={`material-symbols-outlined ${styles.homeIcon}`}>home</span>
-                    <h1 className={styles.homeFonts}>Home</h1>
+                    {isMobile ? (
+                        <span className={`material-symbols-outlined ${styles.homeIcon}`}>home</span>
+                    ) : (
+                        <h1 className={styles.homeFonts}>Home</h1>
+                    )}
                 </Button>
                 <>
                     <div className={styles.headerMenuLayout}>
@@ -188,7 +191,13 @@ const Header = () => {
                         {menuArr.map((item, i) => {
                             return (
                                 <ListItem key={i}>
-                                    <ListItemButton style={{ textAlign: "center" }}>
+                                    <ListItemButton
+                                        onClick={() => {
+                                            setDrawerOpen(false);
+                                            scrollToHash(item.id);
+                                        }}
+                                        style={{ textAlign: "center" }}
+                                    >
                                         <ListItemText
                                             style={{ color: "#DCD7C9" }}
                                             primary={item.title}
