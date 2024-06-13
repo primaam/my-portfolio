@@ -5,7 +5,7 @@ import styles from "../styles/Aboutme.module.css";
 
 const AboutMe = () => {
     return (
-        <div>
+        <div className={styles.responsiveLayout}>
             <Container id={"aboutme"} className={styles.layout} maxWidth="xl">
                 <Box className={styles.mainLayout}>
                     <div className={styles.introImg}>

@@ -125,7 +125,6 @@
     text-align: justify;
 }
 
-
 @media (max-width: 768px){
     .projectMainLayout{
         flex-direction: column-reverse; 
@@ -136,8 +135,7 @@
     }
     .slideShowLayout{
         width: 100%;
-    }
-    
+    } 
 }
 
 @media (max-width: 425px){
@@ -153,6 +151,9 @@
     .slideShowContainer img{
         height: 150px;
         max-width: 250px;
+    }
+    .projectLayout{
+        height: auto;
     }
 }
 
