@@ -6,14 +6,6 @@ import { COLOR } from "../../public/assets/color";
 import { WorkDetailData, EducationDetailData } from "../data/experienceData";
 
 const Background = () => {
-    const eduFilteredData = EducationDetailData.filter((item, i) => {
-        return item.type === "education";
-    });
-
-    const certiFilteredData = EducationDetailData.filter((item, i) => {
-        return item.type === "certification";
-    });
-
     return (
         <Container id="background" maxWidth="xl" className={styles.layout}>
             <Box className={styles.mainLayout}>
