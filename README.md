@@ -1,36 +1,27 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# My Portfolio Website
 
-## Getting Started
+Welcome to my portfolio website! This project is built using Next.js and showcases my work and skills.
 
-First, run the development server:
+## Description
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+This is the version 1.0 of my portfolio website. It includes a collection of my projects, my resume, and my contact. The website is designed to be user-friendly and responsive.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Deployment
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+You can visit the live website here: [My Portfolio v1.0](https://primamaharyonodev.vercel.app/)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Main Sections
 
-## Learn More
+-   **Home**: Introduction and brief overview.
+-   **Projects**: Showcase of my projects with descriptions and links.
+-   **Resume**: My professional resume and career highlights.
+-   **Contact**: Collection of contacts for reaching out.
 
-To learn more about Next.js, take a look at the following resources:
+## Contact for Feedback
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+I would love to hear your thoughts on how I can improve this website. Feel free to reach out to me at:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+-   **Email**: [pmaharyono@gmail.com](mailto:pmaharyono@gmail.com)
+-   **LinkedIn**: [Prima Anugerah Maharyono](https://www.linkedin.com/in/primamaharyono/)
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Thank you for visiting and providing your valuable feedback!
