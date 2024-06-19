@@ -17,6 +17,12 @@ const Header = () => {
     ];
 
     React.useEffect(() => {
+        window.scrollTo({
+            top: 0,
+        });
+    }, []);
+
+    React.useEffect(() => {
         const handleResize = () => {
             setIsMobile(window.innerWidth <= 768);
         };
@@ -31,17 +37,7 @@ const Header = () => {
     }, []);
 
     React.useEffect(() => {
-        window.scrollTo({
-            top: 0,
-            // behavior: "smooth",
-        });
-    }, []);
-
-    React.useEffect(() => {
-        // teknik debounce
         let timeoutId: NodeJS.Timeout;
-
-        let height = screen.height;
 
         const handleScroll = () => {
             clearTimeout(timeoutId);
@@ -65,25 +61,23 @@ const Header = () => {
     }, []);
 
     React.useEffect(() => {
-        let height = screen.height;
+        let height = window.innerHeight;
 
         let timeoutId: NodeJS.Timeout;
-
         const handleScrollPosition = () => {
             clearTimeout(timeoutId);
             const positionY = window.scrollY;
-
             timeoutId = setTimeout(() => {
                 if (positionY < height) {
                     setScrollPos("aboutme");
-                } else if (positionY >= height && positionY < 2.5 * height) {
+                } else if (positionY >= height && positionY < 3 * height) {
                     setScrollPos("background");
-                } else if (positionY >= 2.5 * height && positionY < 3.5 * height) {
+                } else if (positionY >= 3 * height && positionY < 4 * height) {
                     setScrollPos("projects");
-                } else if (positionY >= 3.5 * height) {
+                } else if (positionY >= 4 * height) {
                     setScrollPos("contactme");
                 }
-            }, 200);
+            }, 100);
         };
         window.addEventListener("scroll", handleScrollPosition);
 

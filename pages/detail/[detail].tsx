@@ -49,9 +49,9 @@ const Detail = () => {
                             <p className={`${styles.detailFontsTitle}`}>Job Detail</p>
                             {data.roleJobDetail.map((item, i) => {
                                 return (
-                                    <>
-                                        <p className={`${styles.detailFontsDesc}`}>- {item}</p>
-                                    </>
+                                    <p key={i} className={`${styles.detailFontsDesc}`}>
+                                        - {item}
+                                    </p>
                                 );
                             })}
                             <br />
@@ -74,7 +74,11 @@ const Detail = () => {
                         <div style={{ flex: 0.5 }}>
                             <p className={`${styles.detailFontsTitle}`}>Achievement</p>
                             {data.achievement.map((item, i) => {
-                                return <p className={`${styles.detailFontsDesc}`}>- {item}</p>;
+                                return (
+                                    <p key={i} className={`${styles.detailFontsDesc}`}>
+                                        - {item}
+                                    </p>
+                                );
                             })}
                         </div>
                         <div className={styles.divider} />
