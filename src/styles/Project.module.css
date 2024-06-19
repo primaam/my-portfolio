@@ -156,6 +156,9 @@
         height: auto;
         margin-top: 20px;
     }
+    .description{
+        font-size:small;
+    }
 }
 
   

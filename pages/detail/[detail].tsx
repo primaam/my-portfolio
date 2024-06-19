@@ -58,7 +58,9 @@ const Detail = () => {
                             <p className={`${styles.detailFontsTitle}`}>Tech Stack</p>
                             {data.techStack.map((item, i) => {
                                 return (
-                                    <span className={`${styles.detailFontsDesc}`}>{item} | </span>
+                                    <span key={i} className={`${styles.detailFontsDesc}`}>
+                                        {item} |{" "}
+                                    </span>
                                 );
                             })}
                         </div>
