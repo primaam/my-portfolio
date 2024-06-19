@@ -5,9 +5,6 @@
     width: 100vw;
 }
 
-
-
-/* old */
 .detailSection{
     display: flex;
     align-items: center;
@@ -80,5 +77,28 @@
     .logoContainer img{
         max-width: 250px;
     }
-    
+}
+
+@media (max-width: 425px){
+    .detailLayout{
+        padding-top: 20px;
+        height: auto;
+        margin-bottom: 50px;
+    }
+    .detailSection{
+        gap: 30px;
+    }
+    .detailFontsTitle{
+        font-size: large;
+    }
+    .detailFontsTitle.firstSection{
+        font-size: larger;
+        margin-top: 10px;
+    }
+    .detailFontsDesc{
+        font-size:small;
+    }
+    .logoContainer img{
+        max-width: 200px;
+    }
 }
