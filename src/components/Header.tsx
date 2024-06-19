@@ -74,13 +74,13 @@ const Header = () => {
             const positionY = window.scrollY;
 
             timeoutId = setTimeout(() => {
-                if (positionY < 2 * height) {
+                if (positionY < height) {
                     setScrollPos("aboutme");
-                } else if (positionY < 3 * height) {
+                } else if (positionY >= height && positionY < 2.5 * height) {
                     setScrollPos("background");
-                } else if (positionY < 4 * height) {
+                } else if (positionY >= 2.5 * height && positionY < 3.5 * height) {
                     setScrollPos("projects");
-                } else {
+                } else if (positionY >= 3.5 * height) {
                     setScrollPos("contactme");
                 }
             }, 200);
@@ -179,11 +179,7 @@ const Header = () => {
                 onClose={() => setDrawerOpen(false)}
             >
                 <Box
-                    sx={{
-                        width: "100%",
-                        height: "100%",
-                        paddingTop: "30%",
-                    }}
+                    className={styles.mainDrawer}
                     onClick={() => setDrawerOpen(false)}
                     role="presentation"
                 >
