@@ -7,17 +7,23 @@ export const COLOR = {
 
 
 /**
+ * 60% color
+ * 
  * base color
+ * 
  * alternatif #d7d5ce
+ * alternatif lain #EEEEEE
  */
 export const neutralColor = "#f5f5f5"
 
 /**
+ * 30% color
  * warna untuk disandingkan dengan base color
  */
 export const primaryColor = "#31363F"
 
 /**
+ * 10% color
  * warna untuk call to action, border, active color, hover
  */
 export const secondaryColor = "#76ABAE"

@@ -9,6 +9,42 @@
     }
 }
 
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes erasing {
+    from { width: 100%; }
+    to { width: 0; }
+}
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.typing {
+    animation: typing 0.5s steps(1) infinite;
+}
+.erasing {
+    animation: erasing 0.5s steps(1) infinite;
+}
+.typingContainer{
+    white-space: nowrap;
+    overflow: hidden;
+    font-family: regular;
+    color: #DCD7C9;
+    font-size: large;
+    text-align: justify;
+}
+.cursor {
+    display: inline-block;
+    margin-left: 5px;
+    /* background-color: orange; */
+    animation: blink 1s infinite;
+}
+
 /* new */
 .layout {
     height: 100vh;
@@ -56,11 +92,7 @@
 }
 
 /* desc start */
-.layout.descLayout{
-    /* overflow: hidden; */
-    /* margin-top: 50px;
-    margin-bottom: 20px; */
-}
+
 
 .mainLayout.descMainLayout{
     overflow: hidden;
