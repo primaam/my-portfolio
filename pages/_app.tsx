@@ -7,7 +7,7 @@ export default function App({ Component, pageProps }: AppProps) {
     return (
         <>
             <Head>
-                <title>Welcome to Prima's Website</title>
+                <title>Prima's Website</title>
             </Head>
             <Component {...pageProps} />
         </>
