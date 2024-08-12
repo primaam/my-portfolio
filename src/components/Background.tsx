@@ -5,6 +5,8 @@ import styles from "../styles/Background.module.css";
 import { COLOR } from "../../public/assets/color";
 import { WorkDetailData, EducationDetailData } from "../data/experienceData";
 
+// will change it into the component title and assets
+
 const Background = () => {
     return (
         <Container id="background" maxWidth="xl" className={styles.layout}>
