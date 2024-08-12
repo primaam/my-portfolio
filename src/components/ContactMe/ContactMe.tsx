@@ -2,7 +2,7 @@
 import React from "react";
 import { Container, Box, Button } from "@mui/material";
 import { saveAs } from "file-saver";
-import styles from "../styles/Contactme.module.css";
+import styles from "./Contactme.module.css";
 import LinkedinOutlined from "@ant-design/icons/LinkedinOutlined";
 import GithubFilled from "@ant-design/icons/GithubFilled";
 import InstagramOutlined from "@ant-design/icons/InstagramOutlined";

@@ -1,7 +1,7 @@
 "use clients";
 import React from "react";
 import { Box, Container, LinearProgress } from "@mui/material";
-import styles from "../styles/Aboutme.module.css";
+import styles from "./Aboutme.module.css";
 
 const AboutMe = () => {
     return (

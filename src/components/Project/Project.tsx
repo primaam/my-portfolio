@@ -2,8 +2,8 @@
 import React from "react";
 import { useRouter } from "next/router";
 import { Container, Box, Button } from "@mui/material";
-import { projectDetail } from "../data/projectData";
-import styles from "../styles/Project.module.css";
+import { projectDetail } from "../../data/projectData";
+import styles from "./Project.module.css";
 
 const Project = () => {
     const router = useRouter();

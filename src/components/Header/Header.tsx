@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { Box, Button, Drawer, List, ListItem, ListItemButton, ListItemText } from "@mui/material";
-import styles from "@/styles/Header.module.css";
+import styles from "./Header.module.css";
 
 const Header = () => {
     const [isMobile, setIsMobile] = React.useState(false);
