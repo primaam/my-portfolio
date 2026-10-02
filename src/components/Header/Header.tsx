@@ -1,206 +1,139 @@
 "use client";
-import React from "react";
-import { Box, Button, Drawer, List, ListItem, ListItemButton, ListItemText } from "@mui/material";
-import styles from "./Header.module.css";
 
-const Header = () => {
-    const [isMobile, setIsMobile] = React.useState(false);
-    const [drawerOpen, setDrawerOpen] = React.useState(false);
-    const [scrollPos, setScrollPos] = React.useState("aboutme");
-    const [isScrolled, setIsScrolled] = React.useState(false);
+import { useEffect, useState } from "react";
+import { Home, Menu, X } from "lucide-react";
+import { cn } from "@/lib/utils";
 
-    const menuArr = [
-        { title: "About Me", id: "aboutme" },
-        { title: "Background", id: "background" },
-        { title: "Projects", id: "projects" },
-        { title: "Contact Me", id: "contactme" },
-    ];
+const MENU = [
+  { title: "About Me", id: "aboutme" },
+  { title: "Background", id: "background" },
+  { title: "Projects", id: "projects" },
+  { title: "Contact Me", id: "contactme" },
+];
 
-    React.useEffect(() => {
-        window.scrollTo({
-            top: 0,
-        });
-    }, []);
+export default function Header() {
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [active, setActive] = useState("aboutme");
+  const [scrolled, setScrolled] = useState(false);
 
-    React.useEffect(() => {
-        const handleResize = () => {
-            setIsMobile(window.innerWidth <= 768);
-        };
-
-        handleResize();
-
-        window.addEventListener("resize", handleResize);
-
-        return () => {
-            window.removeEventListener("resize", handleResize);
-        };
-    }, []);
-
-    React.useEffect(() => {
-        let timeoutId: NodeJS.Timeout;
-
-        const handleScroll = () => {
-            clearTimeout(timeoutId);
-
-            timeoutId = setTimeout(() => {
-                const position = window.scrollY;
-
-                if (position < 180) {
-                    setIsScrolled(false);
-                } else {
-                    setIsScrolled(true);
-                }
-            }, 200);
-        };
-
-        window.addEventListener("scroll", handleScroll);
-
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
-    }, []);
-
-    React.useEffect(() => {
-        let height = window.innerHeight;
-
-        let timeoutId: NodeJS.Timeout;
-        const handleScrollPosition = () => {
-            clearTimeout(timeoutId);
-            const positionY = window.scrollY;
-            timeoutId = setTimeout(() => {
-                if (positionY < height) {
-                    setScrollPos("aboutme");
-                } else if (positionY >= height && positionY < 3 * height) {
-                    setScrollPos("background");
-                } else if (positionY >= 3 * height && positionY < 4 * height) {
-                    setScrollPos("projects");
-                } else if (positionY >= 4 * height) {
-                    setScrollPos("contactme");
-                }
-            }, 100);
-        };
-        window.addEventListener("scroll", handleScrollPosition);
-
-        return () => {
-            window.removeEventListener("scroll", handleScrollPosition);
-        };
-    }, []);
-
-    const handleHomeClick = () => {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth",
-        });
-    };
-
-    const scrollToHash = (param: string) => {
-        const element = document.getElementById(`${param}`);
-        if (param != undefined) {
-            setScrollPos(param);
-            element?.scrollIntoView({
-                behavior: "smooth",
-            });
+  useEffect(() => {
+    let timeout: ReturnType<typeof setTimeout>;
+    const onScroll = () => {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        const y = window.scrollY;
+        setScrolled(y > 40);
+        const ids = MENU.map((m) => m.id);
+        let current = ids[0];
+        for (const id of ids) {
+          const el = document.getElementById(id);
+          if (el && el.getBoundingClientRect().top <= 120) current = id;
         }
+        setActive(current);
+      }, 100);
     };
-    return (
-        <>
-            <div className={`${styles.headerLayout} ${isScrolled ? styles.scrolled : ""}`}>
-                <Button
-                    style={{
-                        borderWidth: 0,
-                        color: "white",
-                    }}
-                    variant={isMobile ? "text" : "outlined"}
-                    onClick={handleHomeClick}
-                >
-                    {isMobile ? (
-                        <span className={`material-symbols-outlined ${styles.homeIcon}`}>home</span>
-                    ) : (
-                        <h1 className={styles.homeFonts}>Home</h1>
-                    )}
-                </Button>
-                <>
-                    <div className={styles.headerMenuLayout}>
-                        {menuArr.map((item, i) => {
-                            return (
-                                <Button
-                                    onClick={() => scrollToHash(item.id)}
-                                    variant="outlined"
-                                    key={i}
-                                    sx={{
-                                        "&.MuiButton-outlined:focus": {
-                                            border: "inherit",
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      clearTimeout(timeout);
+    };
+  }, []);
 
-                                            borderBottomWidth: scrollPos === item.id ? 1 : 0,
-                                            borderBottomColor: "wheat",
-                                            outline: "none", // Contoh: Menghilangkan outline
-                                        },
-                                        borderTopWidth: 0,
-                                        borderLeftWidth: 0,
-                                        borderRightWidth: 0,
-                                        borderRadius: 0,
-                                        borderBottomWidth: scrollPos === item.id ? 1 : 0,
-                                        borderBottomColor: "wheat",
-                                        // border: "none",
-                                        color: "white",
-                                        textTransform: "none",
-                                    }}
-                                >
-                                    <span className={styles.menuFonts}>{item.title}</span>
-                                </Button>
-                            );
-                        })}
-                    </div>
-                    <Button
-                        onClick={() => setDrawerOpen(true)}
-                        style={{
-                            display: isMobile ? "block" : "none",
-                            borderWidth: 0,
-                            color: "white",
-                        }}
-                    >
-                        <span className={`material-symbols-outlined ${styles.homeIcon}`}>menu</span>
-                    </Button>
-                </>
-            </div>
-            <Drawer
-                SlideProps={{
-                    className: `${styles.drawer}`,
-                }}
-                transitionDuration={1000}
-                anchor="right"
-                open={drawerOpen}
-                onClose={() => setDrawerOpen(false)}
+  const scrollTo = (id: string) => {
+    setActive(id);
+    setDrawerOpen(false);
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  return (
+    <>
+      <header
+        className={cn(
+          "fixed inset-x-0 top-0 z-50 transition-colors",
+          scrolled
+            ? "border-b border-cream/10 bg-base/90 backdrop-blur"
+            : "bg-transparent"
+        )}
+      >
+        <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-5 sm:px-8">
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="flex cursor-pointer items-center gap-2 text-cream transition-colors hover:text-accent"
+            aria-label="Back to top"
+          >
+            <Home size={18} />
+            <span className="hidden text-sm font-semibold sm:inline">
+              Home
+            </span>
+          </button>
+
+          <nav className="hidden items-center gap-1 md:flex">
+            {MENU.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollTo(item.id)}
+                className={cn(
+                  "cursor-pointer rounded-md px-3 py-2 text-sm transition-colors",
+                  active === item.id
+                    ? "text-accent"
+                    : "text-cream/70 hover:text-cream"
+                )}
+              >
+                {item.title}
+                <span
+                  className={cn(
+                    "mt-0.5 block h-px bg-accent transition-opacity",
+                    active === item.id ? "opacity-100" : "opacity-0"
+                  )}
+                />
+              </button>
+            ))}
+          </nav>
+
+          <button
+            onClick={() => setDrawerOpen(true)}
+            className="cursor-pointer rounded-md p-2 text-cream hover:bg-elevated md:hidden"
+            aria-label="Open menu"
+          >
+            <Menu size={20} />
+          </button>
+        </div>
+      </header>
+
+      {drawerOpen && (
+        <div className="fixed inset-0 z-50 md:hidden">
+          <div
+            className="absolute inset-0 bg-black/60"
+            onClick={() => setDrawerOpen(false)}
+          />
+          <aside className="absolute right-0 top-0 flex h-full w-64 flex-col bg-surface p-6 shadow-xl">
+            <button
+              onClick={() => setDrawerOpen(false)}
+              className="cursor-pointer self-end rounded-md p-2 text-cream hover:bg-elevated"
+              aria-label="Close menu"
             >
-                <Box
-                    className={styles.mainDrawer}
-                    onClick={() => setDrawerOpen(false)}
-                    role="presentation"
+              <X size={20} />
+            </button>
+            <nav className="mt-4 flex flex-col gap-1">
+              {MENU.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => scrollTo(item.id)}
+                  className={cn(
+                    "cursor-pointer rounded-md px-3 py-2.5 text-left text-sm transition-colors",
+                    active === item.id
+                      ? "bg-elevated text-accent"
+                      : "text-cream/80 hover:bg-elevated"
+                  )}
                 >
-                    <List>
-                        {menuArr.map((item, i) => {
-                            return (
-                                <ListItem key={i}>
-                                    <ListItemButton
-                                        onClick={() => {
-                                            setDrawerOpen(false);
-                                            scrollToHash(item.id);
-                                        }}
-                                        style={{ textAlign: "center" }}
-                                    >
-                                        <ListItemText
-                                            style={{ color: "#DCD7C9" }}
-                                            primary={item.title}
-                                        />
-                                    </ListItemButton>
-                                </ListItem>
-                            );
-                        })}
-                    </List>
-                </Box>
-            </Drawer>
-        </>
-    );
-};
-
-export default Header;
+                  {item.title}
+                </button>
+              ))}
+            </nav>
+          </aside>
+        </div>
+      )}
+    </>
+  );
+}

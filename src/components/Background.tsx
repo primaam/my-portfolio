@@ -1,75 +1,59 @@
-"use client";
-import React from "react";
-import { Container, Box, Button } from "@mui/material";
-import styles from "../styles/Background.module.css";
-import { COLOR } from "../../public/assets/color";
-import { WorkDetailData, EducationDetailData } from "../data/experienceData";
+import Reveal from "@/components/Reveal";
+import { WorkDetailData, EducationDetailData } from "@/data/experienceData";
 
-// will change it into the component title and assets
-
-const Background = () => {
-    return (
-        <Container id="background" maxWidth="xl" className={styles.layout}>
-            <Box className={styles.mainLayout}>
-                <div className={styles.section}>
-                    <h1 className={`${styles.titleFonts} ${styles.titleSection}`}>
-                        Education & Certification
-                    </h1>
-                    <br />
-                    <div className={styles.secondarySection}>
-                        {EducationDetailData.map((item, i) => {
-                            return (
-                                <div key={i}>
-                                    <div className={styles.titleRowContainer}>
-                                        <h1 className={styles.titleFonts}>{item.school}</h1>
-                                        <h1 className={styles.titleFonts}>{item.year}</h1>
-                                    </div>
-                                    <div>
-                                        <p className={styles.detailFonts}>{item.title}</p>
-                                        <p className={styles.detailFonts}>{item.detail}</p>
-                                        <br />
-                                    </div>
-
-                                    {item.detail ? (
-                                        <div className={styles.eduDivider}>
-                                            <div />
-                                            <br />
-                                        </div>
-                                    ) : (
-                                        <></>
-                                    )}
-                                </div>
-                            );
-                        })}
+export default function Background() {
+  return (
+    <section id="background" className="mt-6 scroll-mt-20">
+      <Reveal>
+        <div className="rounded-xl border border-cream/10 bg-surface p-8 sm:p-12">
+          <div className="grid gap-10 md:grid-cols-2">
+            <div>
+              <h2 className="text-lg font-semibold text-cream">
+                Education &amp; Certification
+              </h2>
+              <div className="mt-5 space-y-6">
+                {EducationDetailData.map((item, i) => (
+                  <div key={i}>
+                    <div className="flex items-baseline justify-between gap-4">
+                      <h3 className="font-medium text-cream">{item.school}</h3>
+                      <span className="shrink-0 text-sm text-muted">
+                        {item.year}
+                      </span>
                     </div>
-                </div>
-                <div className={styles.divider} style={{ borderColor: COLOR.color3[3] }}></div>
-                <div className={styles.section}>
-                    <h1 className={`${styles.titleFonts} ${styles.titleSection}`}>
-                        Work Experience
-                    </h1>
-                    <br />
-                    <div className={styles.secondarySection}>
-                        {WorkDetailData.map((item, i) => {
-                            return (
-                                <div key={i}>
-                                    <div className={styles.titleRowContainer}>
-                                        <h1 className={styles.titleFonts}>{item.role}</h1>
-                                        <h1 className={styles.titleFonts}>{item.time}</h1>
-                                    </div>
-                                    <div>
-                                        <p className={styles.detailFonts}>{item.company}</p>
-                                        <p className={styles.detailFonts}>{item.location}</p>
-                                        <br />
-                                    </div>
-                                </div>
-                            );
-                        })}
-                    </div>
-                </div>
-            </Box>
-        </Container>
-    );
-};
+                    <p className="mt-1 text-sm text-muted">{item.title}</p>
+                    {item.detail && (
+                      <p className="text-sm text-muted">{item.detail}</p>
+                    )}
+                    {item.detail && (
+                      <div className="mt-4 border-t border-cream/10" />
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
 
-export default Background;
+            <div className="border-t border-cream/10 pt-10 md:border-l md:border-t-0 md:pl-10 md:pt-0">
+              <h2 className="text-lg font-semibold text-cream">
+                Work Experience
+              </h2>
+              <div className="mt-5 space-y-6">
+                {WorkDetailData.map((item, i) => (
+                  <div key={i}>
+                    <div className="flex items-baseline justify-between gap-4">
+                      <h3 className="font-medium text-cream">{item.role}</h3>
+                      <span className="shrink-0 text-sm text-muted">
+                        {item.time}
+                      </span>
+                    </div>
+                    <p className="mt-1 text-sm text-muted">{item.company}</p>
+                    <p className="text-sm text-muted">{item.location}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </Reveal>
+    </section>
+  );
+}

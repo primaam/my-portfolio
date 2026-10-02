@@ -1,99 +1,77 @@
-"use client";
-import React from "react";
-import { Container, Box, Button } from "@mui/material";
-import { saveAs } from "file-saver";
-import styles from "./Contactme.module.css";
-import LinkedinOutlined from "@ant-design/icons/LinkedinOutlined";
-import GithubFilled from "@ant-design/icons/GithubFilled";
-import InstagramOutlined from "@ant-design/icons/InstagramOutlined";
+import { Github, Instagram, Linkedin, Mail, Phone } from "lucide-react";
+import { buttonVariants } from "@/components/ui/button";
+import Reveal from "@/components/Reveal";
 
-const ContactMe = () => {
-    const [isViewed, setIsViewed] = React.useState(false);
+export default function ContactMe() {
+  return (
+    <section id="contactme" className="mt-6 scroll-mt-20">
+      <Reveal>
+        <div className="rounded-xl border border-cream/10 bg-surface p-8 sm:p-12">
+          <div className="grid gap-10 md:grid-cols-2">
+            <div>
+              <h2 className="text-lg font-semibold text-cream">
+                Looking forward to connect with everyone!
+              </h2>
+              <div className="mt-5 space-y-3 text-sm">
+                <a
+                  href="mailto:pmaharyono@gmail.com"
+                  className="flex items-center gap-2.5 text-muted transition-colors hover:text-accent"
+                >
+                  <Mail size={16} className="shrink-0" />
+                  pmaharyono@gmail.com
+                </a>
+                <a
+                  href="tel:+6281393858484"
+                  className="flex items-center gap-2.5 text-muted transition-colors hover:text-accent"
+                >
+                  <Phone size={16} className="shrink-0" />
+                  (+62) 813-9385-8484
+                </a>
+              </div>
+            </div>
 
-    const handleDownloadResume = () => {
-        const pdfUrl = "/resume.pdf";
-        saveAs(pdfUrl, "my-resume.pdf");
-    };
-
-    const handleMakeCall = () => {
-        window.open("tel:+6281393858484");
-    };
-
-    return (
-        <Container className={styles.layout} id="contactme" maxWidth="xl">
-            <Box className={styles.mainLayout}>
-                <div className={styles.titleSection}>
-                    <p className={styles.connectTitleFonts}>
-                        Looking forward to connect with everyone!
-                    </p>
-                    <a
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        href={"https://mail.google.com/mail/?view=cm&fs=1&to=pmaharyono@gmail.com"}
-                        style={{ cursor: "pointer" }}
-                    >
-                        <p className={`${styles.connectDescFonts} ${styles.primaryConnect}`}>
-                            <span className={`material-symbols-outlined ${styles.connectIcons}`}>
-                                mail
-                            </span>
-                            : pmaharyono@gmail.com
-                        </p>
-                    </a>
-                    <br />
-                    <a
-                        onClick={() => handleMakeCall()}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        style={{ cursor: "pointer" }}
-                    >
-                        <p className={`${styles.connectDescFonts} ${styles.primaryConnect}`}>
-                            <span className={`material-symbols-outlined ${styles.connectIcons}`}>
-                                call
-                            </span>
-                            : (+62)813-9385-8484
-                        </p>
-                    </a>
-                    <br />
-                </div>
-                <div className={styles.divider} />
-                <div className={styles.connectSection}>
-                    <p className={`${styles.connectTitleFonts} ${styles.socmedConnect}`}>
-                        My Social
-                    </p>
-                    <div className={styles.socmedSection}>
-                        <a
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            href={"https://github.com/primaam"}
-                        >
-                            <GithubFilled className={styles.connectIcons} />
-                        </a>
-                        <a
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            href={"https://www.linkedin.com/in/primamaharyono/"}
-                        >
-                            <LinkedinOutlined className={styles.connectIcons} />
-                        </a>
-                        <a
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            href={"https://www.instagram.com/prima.maharyono/"}
-                        >
-                            <InstagramOutlined className={styles.connectIcons} />
-                        </a>
-                    </div>
-                    <br />
-                    <Button
-                        onClick={() => handleDownloadResume()}
-                        className={styles.downloadButton}
-                    >
-                        <p className={`${styles.buttonTextFonts}`}>Download My Resume</p>
-                    </Button>
-                </div>
-            </Box>
-        </Container>
-    );
-};
-
-export default ContactMe;
+            <div className="border-t border-cream/10 pt-10 md:border-l md:border-t-0 md:pl-10 md:pt-0">
+              <h2 className="text-lg font-semibold text-cream">My Social</h2>
+              <div className="mt-4 flex items-center gap-2">
+                <a
+                  href="https://github.com/primaam"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="GitHub"
+                  className={buttonVariants({ variant: "ghost", size: "icon" })}
+                >
+                  <Github size={18} />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/primamaharyono/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                  className={buttonVariants({ variant: "ghost", size: "icon" })}
+                >
+                  <Linkedin size={18} />
+                </a>
+                <a
+                  href="https://www.instagram.com/prima.maharyono/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                  className={buttonVariants({ variant: "ghost", size: "icon" })}
+                >
+                  <Instagram size={18} />
+                </a>
+              </div>
+              <a
+                href="/resume.pdf"
+                download="prima-maharyono-resume.pdf"
+                className={buttonVariants({}) + " mt-5"}
+              >
+                Download My Resume
+              </a>
+            </div>
+          </div>
+        </div>
+      </Reveal>
+    </section>
+  );
+}
