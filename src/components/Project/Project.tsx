@@ -1,104 +1,63 @@
-"use client";
-
-import { useState } from "react";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
-import { AnimatePresence, motion } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import { projectDetail } from "@/data/projectData";
-import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import Reveal from "@/components/Reveal";
+import SectionHeading from "@/components/SectionHeading";
 
 export default function Project() {
-  const router = useRouter();
-  const [index, setIndex] = useState(0);
-  const [direction, setDirection] = useState(1);
-
-  const go = (next: number, dir: number) => {
-    setDirection(dir);
-    setIndex((next + projectDetail.length) % projectDetail.length);
-  };
-
-  const current = projectDetail[index];
-
   return (
-    <section id="projects" className="mt-6 scroll-mt-20">
+    <section id="projects" className="mt-8 scroll-mt-24">
       <Reveal>
-        <div className="rounded-xl border border-cream/10 bg-surface p-8 sm:p-12">
-          <div className="grid items-center gap-8 md:grid-cols-2">
-            <div>
-              <p className="text-sm uppercase tracking-widest text-muted">
-                Projects I&apos;ve Contributed To...
-              </p>
-              <h2 className="mt-2 text-2xl font-semibold text-cream">
-                {current.title}
-              </h2>
-              <p className="mt-1 text-sm text-accent">
-                {current.team} — {current.role}
-              </p>
-              <p className="mt-4 leading-relaxed text-muted">
-                {current.shortDesc}
-              </p>
-              <div className="mt-4 flex items-center gap-2 text-sm text-muted">
-                {projectDetail.map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => go(i, i > index ? 1 : -1)}
-                    aria-label={`Go to project ${i + 1}`}
-                    className={`h-1.5 cursor-pointer rounded-full transition-all ${
-                      i === index ? "w-6 bg-accent" : "w-1.5 bg-cream/20 hover:bg-cream/40"
-                    }`}
-                  />
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <div className="relative flex min-h-56 items-center justify-center overflow-hidden rounded-lg bg-cream/5 p-6">
-                <AnimatePresence mode="wait" custom={direction}>
-                  <motion.div
-                    key={index}
-                    custom={direction}
-                    initial={{ opacity: 0, x: 40 * direction }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -40 * direction }}
-                    transition={{ duration: 0.3, ease: "easeOut" }}
-                  >
-                    <Image
-                      src={current.logo}
-                      alt={`${current.title} logo`}
-                      width={420}
-                      height={160}
-                      className="h-auto max-h-44 w-auto max-w-full object-contain"
-                    />
-                  </motion.div>
-                </AnimatePresence>
-              </div>
-              <div className="mt-4 flex items-center justify-between">
-                <Button
-                  variant="outline"
-                  size="icon"
-                  onClick={() => go(index - 1, -1)}
-                  aria-label="Previous project"
-                >
-                  <ChevronLeft />
-                </Button>
-                <Button onClick={() => router.push(`/detail/${index}`)}>
-                  See Detail
-                </Button>
-                <Button
-                  variant="outline"
-                  size="icon"
-                  onClick={() => go(index + 1, 1)}
-                  aria-label="Next project"
-                >
-                  <ChevronRight />
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
+        <SectionHeading label="Projects" />
       </Reveal>
+      <div className="grid gap-6 sm:grid-cols-2">
+        {projectDetail.map((item, i) => (
+          <Reveal key={item.id} delay={(i % 2) * 0.08}>
+            <Link
+              href={`/detail/${i}`}
+              className="panel group flex h-full flex-col overflow-hidden transition duration-300 hover:-translate-y-1 hover:border-accent/50 hover:shadow-[0_16px_40px_rgb(0_0_0/0.35)]"
+            >
+              <div className="relative aspect-[16/10] shrink-0 overflow-hidden bg-elevated/50">
+                <Image
+                  src={item.images}
+                  alt={`${item.title} preview`}
+                  fill
+                  sizes="(max-width: 640px) 100vw, 50vw"
+                  className="object-contain"
+                />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent" />
+              </div>
+              <div className="flex flex-1 flex-col p-6">
+                <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-accent">
+                  {item.role}
+                </p>
+                <h3 className="mt-1.5 text-xl font-semibold text-cream transition-colors group-hover:text-accent">
+                  {item.title}
+                </h3>
+                <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-muted">
+                  {item.shortDesc}
+                </p>
+                <div className="mt-4 flex flex-wrap gap-1.5">
+                  {item.techStack.slice(0, 4).map((t) => (
+                    <Badge key={t} variant="outline">
+                      {t}
+                    </Badge>
+                  ))}
+                </div>
+                <span className="mt-4 inline-flex items-center gap-1 pt-1 text-sm font-medium text-accent">
+                  View case
+                  <ArrowUpRight
+                    size={16}
+                    className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                  />
+                </span>
+              </div>
+            </Link>
+          </Reveal>
+        ))}
+      </div>
     </section>
   );
 }

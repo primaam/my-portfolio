@@ -1,8 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { motion, useScroll, useSpring } from "framer-motion";
 import { Home, Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { smoothScrollToId, smoothScrollToY } from "@/lib/scroll";
 
 const MENU = [
   { title: "About Me", id: "aboutme" },
@@ -15,6 +17,11 @@ export default function Header() {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [active, setActive] = useState("aboutme");
   const [scrolled, setScrolled] = useState(false);
+  const { scrollYProgress } = useScroll();
+  const progress = useSpring(scrollYProgress, {
+    stiffness: 140,
+    damping: 28,
+  });
 
   useEffect(() => {
     let timeout: ReturnType<typeof setTimeout>;
@@ -43,7 +50,7 @@ export default function Header() {
   const scrollTo = (id: string) => {
     setActive(id);
     setDrawerOpen(false);
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    smoothScrollToId(id, 1000);
   };
 
   return (
@@ -58,7 +65,7 @@ export default function Header() {
       >
         <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-5 sm:px-8">
           <button
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            onClick={() => smoothScrollToY(0, 1000)}
             className="flex cursor-pointer items-center gap-2 text-cream transition-colors hover:text-accent"
             aria-label="Back to top"
           >
@@ -99,6 +106,10 @@ export default function Header() {
             <Menu size={20} />
           </button>
         </div>
+        <motion.div
+          style={{ scaleX: progress }}
+          className="h-0.5 origin-left bg-accent"
+        />
       </header>
 
       {drawerOpen && (

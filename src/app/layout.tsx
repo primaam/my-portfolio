@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import { Poppins, JetBrains_Mono } from "next/font/google";
 import "@/styles/globals.css";
 
 const poppins = Poppins({
@@ -9,10 +9,17 @@ const poppins = Poppins({
   display: "swap",
 });
 
+const jetbrainsMono = JetBrains_Mono({
+  weight: ["400", "500", "600"],
+  subsets: ["latin"],
+  variable: "--font-mono",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
-  title: "Prima Maharyono — Frontend Developer",
+  title: "Prima Maharyono — Full-Stack Developer",
   description:
-    "Portfolio of Prima Anugerah Maharyono — Frontend Developer specializing in React, React Native, and modern web development.",
+    "Portfolio of Prima Anugerah Maharyono — Full-Stack Developer specializing in frontend architecture, performance optimization, React, and modern web development.",
 };
 
 export default function RootLayout({
@@ -22,7 +29,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="dark">
-      <body className={`${poppins.variable} min-h-screen antialiased`}>
+      <body
+        suppressHydrationWarning
+        className={`${poppins.variable} ${jetbrainsMono.variable} min-h-screen antialiased`}
+      >
         {children}
       </body>
     </html>
