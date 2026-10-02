@@ -22,7 +22,71 @@ interface ProjectDetail {
 
 export const projectDetail: ProjectDetail[] = [
     {
+        id: 0,
+        title: "Ceisa 4.0",
+        time: "2025",
+        logo: "/assets/images/ceisa-cover.svg",
+        images: "/assets/images/ceisa-cover.svg",
+        longDesc: `Ceisa 4.0 is the customs and excise system of Bea Cukai Indonesia. As part of PT Mediatama Indo Teknologi's maintenance squad in a multi-vendor environment, I progressed from Frontend Developer to Full Stack Developer and Lead Frontend Developer — driving backend performance optimization while leading frontend quality: formal code reviews, mentoring juniors, JSDoc documentation standards, and Web Performance API measurement.`,
+        shortDesc: "Customs & excise system of Bea Cukai Indonesia. Led frontend quality while driving backend performance — including a 15x faster critical query (6s → 400ms) with SQL, CTE, Kafka, and paginated endpoints.",
+        team: "Mediatama Maintenance Squad",
+        role: "Lead Frontend Developer & Full Stack Developer",
+        roleJobDetail: [
+            "Led the frontend team: code review process, mentoring juniors, and task distribution",
+            "Developed Kafka producers and consumers for real-time data processing",
+            "Introduced Common Table Expressions (CTE) for complex data operations",
+            "Restructured inefficient backend endpoints with pagination and memory optimization",
+            "Pioneered JSDoc documentation standards and Web Performance API measurement"
+        ],
+        achievement: [
+            "15x speed increase on a critical query (from >6 seconds to ~400ms)",
+            "Higher code quality and knowledge sharing through formal code reviews",
+            "Consistent delivery despite a reduction in team size",
+        ],
+        feature: [
+            "Real-time data processing with Kafka",
+            "Paginated, memory-efficient endpoints",
+            "Performance measurement with Web Performance API"
+        ],
+        techStack: ["React", "TypeScript", "SQL", "Kafka", "JSDoc", "Git", "Jira"],
+        link: {
+            web: "",
+            appStore: "",
+            playStore: ""
+        },
+    },
+    {
         id: 1,
+        title: "Daya Fintech",
+        time: "Nov 2024 - Jan 2025",
+        logo: "/assets/images/daya-cover.svg",
+        images: "/assets/images/daya-cover.svg",
+        longDesc: `Fintech platform by Daya Inspirasi Bangsa providing funds for Indonesian workers in Japan. I focused on frontend feature development and codebase improvements: implementing feature-based architecture within a monolithic frontend to create clear boundaries between new and existing products, and enhancing UX with an interactive card-based system with hover effects and color-coded categories.`,
+        shortDesc: "Fintech funding Indonesian workers in Japan. Implemented feature-based architecture in a monolithic frontend and built an interactive card-based UX with color-coded categories.",
+        team: "Daya Inspirasi Bangsa",
+        role: "Software Engineer",
+        roleJobDetail: [
+            "Implemented feature-based architecture within a monolithic frontend",
+            "Built new features and updated existing ones for evolving product requirements",
+            "Enhanced UX with an interactive card-based system and color-coded categories"
+        ],
+        achievement: [
+            "Clear boundaries between new and existing products",
+            "More engaging product browsing experience",
+        ],
+        feature: [
+            "Funding flows for overseas workers",
+            "Card-based category system"
+        ],
+        techStack: ["React", "TypeScript", "Redux", "Axios", "Git"],
+        link: {
+            web: "",
+            appStore: "",
+            playStore: ""
+        },
+    },
+    {
+        id: 3,
         title: "ClicTruck",
         time: "May 2023 - November 2023",
         logo: "/assets/images/clictruck-logo.png",
@@ -59,7 +123,7 @@ export const projectDetail: ProjectDetail[] = [
         },
     },
     {
-        id: 2,
+        id: 4,
         title: "Landack",
         time: "March 2023 - May 2023",
         logo: "/assets/images/landack-logo.png",
@@ -92,7 +156,7 @@ export const projectDetail: ProjectDetail[] = [
         }, 
     },
     {
-        id: 3,
+        id: 5,
         title: "BibToGo",
         time: "July 2021 - July 2022",
         logo: "/assets/images/bibtogo-logo.png",
@@ -130,7 +194,7 @@ export const projectDetail: ProjectDetail[] = [
         }, 
     },
     {
-        id: 4,
+        id: 6,
         title: "Rapidsense",
         time: "May 2022 - July 2022",
         logo: "/assets/images/rapidsense-logo.png",
