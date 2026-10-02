@@ -52,7 +52,7 @@ export default function AboutMe() {
                             <h1 className="text-3xl font-semibold tracking-tight text-cream sm:text-5xl">
                                 Prima Anugerah Maharyono
                             </h1>
-                            <p className="mt-3 text-sm font-medium leading-relaxed text-cream/90 sm:text-base">
+                            <p className="mt-3 text-sm font-medium leading-relaxed text-cream/90">
                                 Full-Stack Developer <span className="text-accent">|</span>{" "}
                                 Frontend Architecture <span className="text-accent">|</span>{" "}
                                 Performance Optimization
